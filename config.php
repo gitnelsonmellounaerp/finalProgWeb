@@ -1,9 +1,13 @@
-<?php
+<?php 
 
-$con = new mysqli('localhost', 'root', '', 'finalapi');
 
-    if(!$con){
-        die (mysqli_error($con));
+    //Conexão com o Banco de Dados
+    $conn = new mysqli('localhost', 'root', '', 'finalapi');
+
+    if(!$conn){
+        
+        die (mysqli_error($conn));
     } 
-?>
 
+
+?>
