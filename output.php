@@ -24,6 +24,9 @@ include 'config.php';
           '".$personagem['species']."',
           '".$personagem['image']."')";
 
+        if ($conn->query($sql) === FALSE) {
+        }
+
   }
 
 ?>
