@@ -13,7 +13,8 @@
     
     curl_close($ch);
 
-    $total_moedas = json_decode($response, TRUE);
+    $total_moedas = json_decode($response, true);
+    print_r($total_moedas);
 
     
   //  $moedas = $total_moedas->id;
@@ -21,16 +22,15 @@
 
     foreach ($total_moedas as $moeda) {
 
-        $moeda_idControle = $moeda['market_cap_rank'];
-        $moeda_id = $moeda['id'];
-        $moeda_symbol= $moeda['symbol'];
-        $moeda_name = $moeda['name'];
-        $moeda_tvolume = $moeda['total_volume'];
-        $moeda_current = $moeda['current_price'];
-        $moeda_marketCap = $moeda['market_cap'];
+      $sql = "INSERT INTO coins (market_cap_rank, id, symbol, total_volume, current_price, market_cap)
+      VALUES (
+          '".$moeda->maket_cap_rank."',
+          '".$moeda->id."',
+          '".$moeda->symbol."',
+          '".$moeda->total_volume."',
+          '".$moeda->current_price."',
+          '".$moeda->market_cap."')";
 
-        $sql = "insert into coins (market_cap_rank, id, symbol, name, current_price, market_cap, total_volume)
-        values ('$moeda_idControle', '$moeda_id', '$moeda_symbol', '$moeda_name', '$moeda_tvolume', '$moeda_current', '$moeda_marketCap')";
 
     } 
 

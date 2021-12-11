@@ -6,3 +6,4 @@ $con = new mysqli('localhost', 'root', '', 'finalapi');
         die (mysqli_error($con));
     } 
 ?>
+
